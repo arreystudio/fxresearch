@@ -1,0 +1,31 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  ROA_w   R-squared:                       0.120
+Model:                            OLS   Adj. R-squared:                  0.020
+Method:                 Least Squares   F-statistic:                     1.622
+Date:                Sat, 01 Nov 2025   Prob (F-statistic):              0.174
+Time:                        15:50:03   Log-Likelihood:                 95.528
+No. Observations:                  50   AIC:                            -179.1
+Df Residuals:                      44   BIC:                            -167.6
+Df Model:                           5                                         
+Covariance Type:                  HAC                                         
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -0.2157      0.356     -0.606      0.544      -0.913       0.481
+ERVol12Q       0.7452      0.336      2.221      0.026       0.088       1.403
+Hedge         -0.0084      0.013     -0.644      0.520      -0.034       0.017
+DER           -0.0066      0.003     -2.502      0.012      -0.012      -0.001
+lnTA           0.0143      0.024      0.590      0.555      -0.033       0.062
+CR            -0.0207      0.019     -1.066      0.286      -0.059       0.017
+==============================================================================
+Omnibus:                       76.341   Durbin-Watson:                   2.326
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              974.349
+Skew:                           4.044   Prob(JB):                    2.65e-212
+Kurtosis:                      23.057   Cond. No.                     1.56e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 4 lags and without small sample correction
+[2] The condition number is large, 1.56e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.

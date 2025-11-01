@@ -1,0 +1,31 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           NetIncome_TA   R-squared:                       0.116
+Model:                            OLS   Adj. R-squared:                  0.015
+Method:                 Least Squares   F-statistic:                     1.671
+Date:                Sat, 01 Nov 2025   Prob (F-statistic):              0.162
+Time:                        15:50:03   Log-Likelihood:                 83.575
+No. Observations:                  50   AIC:                            -155.2
+Df Residuals:                      44   BIC:                            -143.7
+Df Model:                           5                                         
+Covariance Type:                  HAC                                         
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -0.2304      0.436     -0.529      0.597      -1.084       0.624
+ERVol12Q       0.8807      0.383      2.300      0.021       0.130       1.631
+Hedge         -0.0068      0.016     -0.437      0.662      -0.037       0.024
+DER           -0.0083      0.003     -2.665      0.008      -0.014      -0.002
+lnTA           0.0155      0.030      0.523      0.601      -0.043       0.074
+CR            -0.0284      0.026     -1.108      0.268      -0.079       0.022
+==============================================================================
+Omnibus:                       85.149   Durbin-Watson:                   2.295
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1510.758
+Skew:                           4.609   Prob(JB):                         0.00
+Kurtosis:                      28.302   Cond. No.                     1.56e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 4 lags and without small sample correction
+[2] The condition number is large, 1.56e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.

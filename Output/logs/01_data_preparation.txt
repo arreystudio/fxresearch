@@ -1,0 +1,3 @@
+Rows raw: 50
+Rows cleaned: 50
+Numeric columns converted; Hedge set to int.

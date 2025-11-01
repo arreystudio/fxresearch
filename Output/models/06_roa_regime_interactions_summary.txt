@@ -1,0 +1,34 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                    ROA   R-squared:                       0.108
+Model:                            OLS   Adj. R-squared:                 -0.040
+Method:                 Least Squares   F-statistic:                     2.153
+Date:                Sat, 01 Nov 2025   Prob (F-statistic):             0.0585
+Time:                        15:50:03   Log-Likelihood:                 77.450
+No. Observations:                  50   AIC:                            -138.9
+Df Residuals:                      42   BIC:                            -123.6
+Df Model:                           7                                         
+Covariance Type:                  HAC                                         
+=====================================================================================
+                        coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+const                -0.4706      0.557     -0.844      0.399      -1.563       0.622
+ERVol12Q              0.5471      0.660      0.828      0.407      -0.747       1.842
+Hedge                 0.0101      0.020      0.508      0.611      -0.029       0.049
+DER                  -0.0096      0.003     -2.987      0.003      -0.016      -0.003
+lnTA                  0.0315      0.037      0.858      0.391      -0.040       0.103
+CR                   -0.0213      0.036     -0.587      0.557      -0.092       0.050
+Post2020              0.0209      0.035      0.592      0.554      -0.048       0.090
+ERVol12Q_Post2020     0.0550      0.876      0.063      0.950      -1.662       1.772
+Hedge_Post2020             0          0        nan        nan           0           0
+==============================================================================
+Omnibus:                       92.308   Durbin-Watson:                   2.233
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2034.489
+Skew:                           5.149   Prob(JB):                         0.00
+Kurtosis:                      32.504   Cond. No.                          inf
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 4 lags and without small sample correction
+[2] The smallest eigenvalue is      0. This might indicate that there are
+strong multicollinearity problems or that the design matrix is singular.

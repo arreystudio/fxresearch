@@ -1,0 +1,34 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:              NetIncome   R-squared:                       0.116
+Model:                            OLS   Adj. R-squared:                 -0.031
+Method:                 Least Squares   F-statistic:                     2.001
+Date:                Sat, 01 Nov 2025   Prob (F-statistic):             0.0777
+Time:                        15:50:03   Log-Likelihood:                -669.44
+No. Observations:                  50   AIC:                             1355.
+Df Residuals:                      42   BIC:                             1370.
+Df Model:                           7                                         
+Covariance Type:                  HAC                                         
+=====================================================================================
+                        coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+const             -1.078e+06   1.71e+06     -0.630      0.529   -4.43e+06    2.28e+06
+ERVol12Q           1.856e+06   2.07e+06      0.898      0.369   -2.19e+06     5.9e+06
+Hedge              3.683e+04   6.02e+04      0.612      0.541   -8.12e+04    1.55e+05
+DER               -3.155e+04   1.03e+04     -3.055      0.002   -5.18e+04   -1.13e+04
+lnTA                7.11e+04   1.12e+05      0.634      0.526   -1.49e+05    2.91e+05
+CR                -5.649e+04   1.17e+05     -0.484      0.628   -2.85e+05    1.72e+05
+Post2020           8.578e+04   1.21e+05      0.708      0.479   -1.52e+05    3.23e+05
+ERVol12Q_Post2020  1.475e+04   2.83e+06      0.005      0.996   -5.53e+06    5.56e+06
+Hedge_Post2020             0          0        nan        nan           0           0
+==============================================================================
+Omnibus:                       89.888   Durbin-Watson:                   2.209
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1832.481
+Skew:                           4.966   Prob(JB):                         0.00
+Kurtosis:                      30.946   Cond. No.                          inf
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 4 lags and without small sample correction
+[2] The smallest eigenvalue is      0. This might indicate that there are
+strong multicollinearity problems or that the design matrix is singular.

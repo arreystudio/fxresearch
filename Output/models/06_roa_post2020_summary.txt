@@ -1,0 +1,31 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                    ROA   R-squared:                       0.304
+Model:                            OLS   Adj. R-squared:                  0.140
+Method:                 Least Squares   F-statistic:                     14.68
+Date:                Sat, 01 Nov 2025   Prob (F-statistic):           2.32e-05
+Time:                        15:50:03   Log-Likelihood:                 54.429
+No. Observations:                  22   AIC:                            -98.86
+Df Residuals:                      17   BIC:                            -93.40
+Df Model:                           4                                         
+Covariance Type:                  HAC                                         
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.3282      1.228      0.267      0.789      -2.079       2.735
+ERVol12Q       0.2446      0.559      0.437      0.662      -0.851       1.341
+Hedge      -1.968e-16   4.71e-16     -0.418      0.676   -1.12e-15    7.26e-16
+DER           -0.0082      0.004     -2.120      0.034      -0.016      -0.001
+lnTA          -0.0217      0.083     -0.262      0.793      -0.184       0.140
+CR             0.0361      0.026      1.400      0.161      -0.014       0.087
+==============================================================================
+Omnibus:                       31.436   Durbin-Watson:                   2.175
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               69.630
+Skew:                           2.486   Prob(JB):                     7.59e-16
+Kurtosis:                      10.159   Cond. No.                     1.25e+19
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 4 lags and without small sample correction
+[2] The smallest eigenvalue is 3.48e-35. This might indicate that there are
+strong multicollinearity problems or that the design matrix is singular.

@@ -1,0 +1,23 @@
+# References
+
+- Adler, M., & Dumas, B. (1984). Exposure to Exchange Rate Risk. Financial Management, 13(2), 41–50.
+- Allayannis, G., & Ofek, E. (2001). Exchange rate exposure, hedging, and the use of foreign currency derivatives. Journal of International Money and Finance, 20(2), 273–296.
+- Bartram, S. M. (2017). Corporate hedging and speculation with derivatives. Journal of Corporate Finance, 45, 124–148.
+- Bartram, S. M., Brown, G. W., & Conrad, J. (2011). The effects of derivatives on firm risk and value. Journal of Financial and Quantitative Analysis, 46(4), 967–999.
+- Bodnar, G. M., Hayt, G. S., & Marston, R. C. (1998). 1998 Wharton survey of financial risk management by U.S. non-financial firms. Financial Management, 27(4), 70–91.
+- Cheung, Y. W., & Ng, L. K. (1995). The determinants of foreign exchange rates. International Journal of Finance & Economics, 2(4), 321–345.
+- Devereux, M. B., & Engel, C. (2002). Exchange rate pass-through, exchange rate volatility, and exchange rate regimes. Journal of Monetary Economics, 49(5), 913–940.
+- Dominguez, K., & Tesar, L. L. (2006). Exchange rate exposure. Journal of International Economics, 68(1), 188–218.
+- Jorion, P. (1990). The Exchange Rate Exposure of U.S. Multinationals. Journal of Business, 63(3), 331–345.
+- Jorion, P. (1991). The pricing of exchange rate risk in the stock market. Journal of Financial and Quantitative Analysis, 26(3), 363–376.
+- Karam, P. D., Nassif, G., & Nakhle, N. (2018). Exchange rate volatility and firm performance: Evidence from emerging markets. Emerging Markets Review, 36, 52–68.
+- Nguyen, H., Faff, R., & Marshall, A. (2007). Exchange rate exposure, foreign currency derivatives, and the hedging premium. Journal of Financial Research, 30(2), 193–211.
+- Prambudia, B., & Ermawati, D. (2014). Hedging Practices in Indonesia: A Study of Listed Firms. Indonesian Capital Market Review, 6(1), 25–40.
+- Shin, H., & Soenen, L. (1998). Exposure to currency risk of U.S. multinational corporations. Journal of Business Finance & Accounting, 25(3‐4), 593–614.
+- Smith, C. W., & Stulz, R. M. (1985). The determinants of firms’ hedging policies. Journal of Financial and Quantitative Analysis, 20(4), 391–405.
+- Stulz, R. M. (1996). Rethinking risk management. Journal of Applied Corporate Finance, 9(3), 8–24.
+- Tufano, P. (1996). Who manages risk? An empirical examination of risk management practices in the gold mining industry. The Journal of Finance, 51(4), 1097–1137.
+- Wong, A., Shamsuddin, A., & Gharghori, P. (2019). Does foreign exchange exposure matter? Evidence from Australian firms. Pacific-Basin Finance Journal, 57, 101197.
+- Bank Indonesia (various years). Exchange Rate Statistics. https://www.bi.go.id/
+- Indonesia Stock Exchange (IDX). (various years). Financial Statements and Market Data. https://www.idx.co.id/
+- PT Krakatau Steel (Persero) Tbk. Annual Reports (2013–2025). https://www.krakatausteel.com/
