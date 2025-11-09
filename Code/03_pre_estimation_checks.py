@@ -15,7 +15,8 @@ cfg = importlib.util.module_from_spec(_spec)
 sys.modules["cfg"] = cfg
 _spec.loader.exec_module(cfg)
 
-CHECK_VARS = ["ROA","NetIncome","ERVol12Q","CFV12Q"]
+# Variables to check for ADF and ACF/PACF plots
+CHECK_VARS = ["ROA","NetIncome","ERVol12Q","CFV12Q","DER","lnTA","CR"]
 
 
 def main():
@@ -25,7 +26,8 @@ def main():
     # ADF tests
     rows = []
     for col in CHECK_VARS:
-        series = df[col].dropna().values
+        # Ensure numeric
+        series = pd.to_numeric(df[col], errors="coerce").dropna().values
         adf_res = adfuller(series, autolag="AIC")
         rows.append({
             "variable": col,

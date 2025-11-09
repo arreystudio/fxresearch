@@ -3,8 +3,8 @@
 Dep. Variable:              NetIncome   R-squared:                       0.158
 Model:                            OLS   Adj. R-squared:                  0.038
 Method:                 Least Squares   F-statistic:                     1.240
-Date:                Sat, 01 Nov 2025   Prob (F-statistic):              0.308
-Time:                        15:50:03   Log-Likelihood:                -655.35
+Date:                Sun, 09 Nov 2025   Prob (F-statistic):              0.308
+Time:                        21:13:33   Log-Likelihood:                -655.35
 No. Observations:                  49   AIC:                             1325.
 Df Residuals:                      42   BIC:                             1338.
 Df Model:                           6                                         

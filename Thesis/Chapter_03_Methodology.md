@@ -32,5 +32,11 @@ Sensitivity checks include alternative volatility windows (3M, 12M), scaling, wi
 - Heteroskedasticity: Breusch–Pagan; HAC robust SEs.
 - Autocorrelation: ACF/PACF; dynamic terms as diagnostics.
 
+### Treatment of Non-Stationarity and Dynamic Specification
+- Stationarity screening with ADF is applied to all continuous series (ROA, Net Income, ERVol12Q, CFV12Q, DER, lnTA, CR). Findings indicate CFV12Q and several controls are I(1) at level.
+- To avoid spurious regression, models incorporate dynamics (lagged dependent variable) and quarterly time effects, and use HAC/Newey–West robust standard errors. Residual tests (Breusch–Godfrey up to 4 lags; Durbin–Watson ≈ 1.9–2.0) show minimal residual autocorrelation in dynamic specifications.
+- Robustness checks include a first-difference model for CFV (ΔCFV12Q) and an Engle–Granger residual-based cointegration test between CFV12Q and the predictor set (ERVol12Q, DER, lnTA, CR, Hedge). EG rejects unit root in residuals (p ≈ 0.00077), supporting cointegration and validating level estimation with dynamics and robust SEs.
+- Documentation and detailed outputs are consolidated in `Thesis/Tables/Diagnostics.md` (sources: `../Output/tables/03_adf_results.csv`, `../Output/tables/07_breusch_godfrey_*.csv`, `../Output/tables/07_cointegration_cfv12q.csv`).
+
 ### Ethical Considerations
 Use of public data, proper citation, and transparent, reproducible workflow.

@@ -136,6 +136,12 @@ Interpretation: ROA and NetIncome show parameter stability; CFV12Q exhibits a br
 ### Discussion
 Findings align with KRAS’s operational context: USD-cost inputs expose cash flows to exchange-rate swings; hedging dampens volatility but performance metrics are influenced by broader operational, market, and policy factors. Post-2020 dynamics (market stress and policy shifts) intensified exposure channels, reinforcing the case for structured hedging and liquidity buffers.
 
+#### Robustness and Cointegration: CFV12Q in Levels vs Differences
+- First-difference specification (dep: ΔCFV12Q) yields `R²` ≈ 0.24 and shows significant negative associations for `Hedge`, `DER`, dan `lnTA`; residual diagnostics indicate no serial correlation (BG `p` ≈ 0.92; DW ≈ 1.93). Ini mengurangi kekhawatiran spurious regression dan mendukung interpretasi dinamika jangka pendek.
+- Engle–Granger residual-based test untuk hubungan level CFV12Q terhadap gabungan prediktor (ERVol12Q, DER, lnTA, CR, Hedge) menunjukkan kointegrasi (ADF residual `p` ≈ 0.00077). Dengan kointegrasi, spesifikasi level valid asalkan memasukkan dinamika (lag dependen) dan memakai SE robust; konsisten dengan temuan BG/DW yang menunjukkan residual mendekati white noise.
+- Secara praktis, dua hasil ini memperkuat justifikasi penggunaan variabel non‑stasioner sebagai kontrol dan CFV12Q pada level untuk analisis hubungan jangka panjang, sembari menyediakan estimasi differenced untuk sensitivitas jangka pendek.
+- Rujukan keluaran: `../Output/models/07_cfv12q_diff_summary.txt`, `../Output/tables/07_breusch_godfrey_cfv12q_diff.csv`, `../Output/tables/07_cointegration_cfv12q.csv`; ringkasan dan interpretasi terdokumentasi di `Thesis/Tables/Diagnostics.md`.
+
 ## Embedded Key Effects Summary
 
 Below is an embedded table of key coefficients from the baseline and interaction models.

@@ -38,3 +38,56 @@ Key notes:
 - CFV12Q: Strong persistence (`CFV12Q_lag1` ≈ 0.869, p < 0.001); Durbin–Watson ≈ 2.02 indicates residuals close to white noise once dynamics are included.
 
 Overall: Diagnostics support model validity and reliability. Multicollinearity is low, heteroskedasticity is not detected for ROA, and autocorrelation is addressed using appropriate dynamic specifications and HAC-robust standard errors.
+
+### Stationarity (ADF) — Including Controls
+
+Source: `../Output/tables/03_adf_results.csv`
+
+| Variable | ADF stat | p-value | lags | nobs |
+|---|---:|---:|---:|---:|
+| ROA | -7.468 | 5.16e-11 | 0 | 49 |
+| NetIncome | -7.291 | 1.42e-10 | 0 | 49 |
+| ERVol12Q | -2.896 | 0.0458 | 1 | 48 |
+| CFV12Q | -1.344 | 0.6089 | 0 | 49 |
+| DER | -2.379 | 0.1477 | 0 | 49 |
+| lnTA | -2.044 | 0.2677 | 0 | 49 |
+| CR | -1.837 | 0.3622 | 1 | 48 |
+
+Interpretation: ROA dan NetIncome stasioner; ERVol12Q borderline stasioner pada 5%. CFV12Q non‑stasioner (I(1)); kontrol DER, lnTA, dan CR tidak stasioner di level pada taraf 5%—praktik umum adalah tetap digunakan sebagai kontrol level jika residual model berperilaku baik (lihat BG dan DW). Alternatifnya, gunakan transformasi (differencing/log) bila diperlukan oleh interpretasi.
+
+### Residual Autocorrelation (Breusch–Godfrey on Dynamics)
+
+Sources: `../Output/tables/07_breusch_godfrey_roa.csv`, `../Output/tables/07_breusch_godfrey_netincome.csv`, `../Output/tables/07_breusch_godfrey_cfv12q.csv`
+
+| Model | LM stat | LM p-value | F stat | F p-value | nlags |
+|---|---:|---:|---:|---:|---:|
+| ROA | 4.036 | 0.4011 | 0.8528 | 0.5009 | 4 |
+| NetIncome | 3.767 | 0.4384 | 0.7913 | 0.5382 | 4 |
+| CFV12Q | 0.0640 | 0.9995 | 0.0124 | 0.9997 | 4 |
+
+Residual ACF/PACF figures: `../Output/figures/07_resid_acf_ROA.svg`, `../Output/figures/07_resid_pacf_ROA.svg`, `../Output/figures/07_resid_acf_NetIncome.svg`, `../Output/figures/07_resid_pacf_NetIncome.svg`, `../Output/figures/07_resid_acf_CFV12Q.svg`, `../Output/figures/07_resid_pacf_CFV12Q.svg`.
+
+Interpretation: Tidak ada autokorelasi residual yang terdeteksi (p-values > 0.40 untuk ROA/NetIncome; ~1.00 untuk CFV12Q) pada hingga 4 lag. Hal ini konsisten dengan DW ~ 1.91–2.02 dan penggunaan lag dependen di model dinamis.
+
+### Robustness: ΔCFV12Q Model (First Difference)
+
+Sources: `../Output/models/07_cfv12q_diff_summary.txt`, `../Output/tables/07_breusch_godfrey_cfv12q_diff.csv`
+
+Key results (OLS with HAC SEs, dep: `DCFV12Q`):
+- `R-squared` ≈ 0.240; `Adj. R-squared` ≈ 0.128; `F` p ≈ 0.0835
+- `Hedge` negatif dan signifikan (p ≈ 0.003); `DER` negatif, signifikan (p ≈ 0.041); `lnTA` negatif, signifikan (p ≈ 0.015)
+- `DCFV12Q_lag1` tidak signifikan; DW ≈ 1.93
+- BG test (nlags=4): `LM_pvalue` ≈ 0.917; `F_pvalue` ≈ 0.943 → tidak ada autokorelasi residual
+
+Residual ACF/PACF figures: `../Output/figures/07_resid_acf_DCFV12Q.svg`, `../Output/figures/07_resid_pacf_DCFV12Q.svg`
+
+Interpretation: Model differencing menurunkan risiko spurious regression untuk CFV. Hasil menunjukkan hubungan robust pada beberapa kontrol dan tidak ada autokorelasi residual, mendukung validitas spesifikasi dalam bentuk differenced sebagai cek ketahanan.
+
+### Cointegration (Engle–Granger)
+
+Source: `../Output/tables/07_cointegration_cfv12q.csv`
+
+- Engle–Granger ADF pada residual: `stat` ≈ -3.367; `p` ≈ 0.00077; lags=4
+- Residual ACF/PACF figures: `../Output/figures/07_eg_resid_acf_CFV12Q.svg`, `../Output/figures/07_eg_resid_pacf_CFV12Q.svg`
+
+Interpretation: Penolakan H0 unit root pada residual menunjukkan kointegrasi antara `CFV12Q` dan gabungan prediktor (`ERVol12Q`, `DER`, `lnTA`, `CR`, `Hedge`). Ini membenarkan estimasi di level (tanpa differencing) selama dinamika dan SE robust digunakan, serta residual lolos uji BG/DW.

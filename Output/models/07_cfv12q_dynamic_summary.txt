@@ -3,8 +3,8 @@
 Dep. Variable:                 CFV12Q   R-squared:                       0.972
 Model:                            OLS   Adj. R-squared:                  0.968
 Method:                 Least Squares   F-statistic:                     487.9
-Date:                Sat, 01 Nov 2025   Prob (F-statistic):           3.58e-37
-Time:                        15:50:03   Log-Likelihood:                 239.76
+Date:                Sun, 09 Nov 2025   Prob (F-statistic):           3.58e-37
+Time:                        21:13:33   Log-Likelihood:                 239.76
 No. Observations:                  49   AIC:                            -465.5
 Df Residuals:                      42   BIC:                            -452.3
 Df Model:                           6                                         
