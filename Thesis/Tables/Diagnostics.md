@@ -16,15 +16,17 @@ Source: `../Output/tables/07_vif.csv`
 
 Interpretation: All VIF values are below 3, comfortably under common thresholds (5–10), indicating low multicollinearity among regressors.
 
-### Heteroskedasticity (Breusch–Pagan, ROA)
+### Heteroskedasticity (Breusch–Pagan, ROA, NetIncome, CFV12Q)
 
-Source: `../Output/tables/03_breusch_pagan_roa.csv`
+Sources: `../Output/tables/03_breusch_pagan_roa.csv`, `../Output/tables/03_breusch_pagan_netincome.csv`, `../Output/tables/03_breusch_pagan_cfv12q.csv`
 
-| LM_stat | LM_pvalue | F_stat | F_pvalue |
-|---:|---:|---:|---:|
-| 1.5363 | 0.6739 | 0.4861 | 0.6936 |
+| DepVar | LM_stat | LM_pvalue | F_stat | F_pvalue |
+|---|---:|---:|---:|---:|
+| ROA | 1.5363 | 0.6739 | 0.4861 | 0.6936 |
+| NetIncome | 1.5210 | 0.6774 | 0.4811 | 0.6971 |
+| CFV12Q | 0.6005 | 0.8963 | 0.1864 | 0.9051 |
 
-Interpretation: The Breusch–Pagan test does not indicate heteroskedasticity for ROA (p-values ≈ 0.67–0.69). HAC-robust standard errors are nevertheless applied across models for robustness.
+Interpretation: Breusch–Pagan tidak mengindikasikan heteroskedastisitas untuk ketiga dependent variables (p-values tinggi). SE HAC tetap digunakan lintas model sebagai ketahanan.
 
 ### Autocorrelation (ACF/PACF and Dynamic Terms)
 
@@ -55,6 +57,19 @@ Source: `../Output/tables/03_adf_results.csv`
 
 Interpretation: ROA dan NetIncome stasioner; ERVol12Q borderline stasioner pada 5%. CFV12Q non‑stasioner (I(1)); kontrol DER, lnTA, dan CR tidak stasioner di level pada taraf 5%—praktik umum adalah tetap digunakan sebagai kontrol level jika residual model berperilaku baik (lihat BG dan DW). Alternatifnya, gunakan transformasi (differencing/log) bila diperlukan oleh interpretasi.
 
+### Stationarity (ADF) — First Differences
+
+Source: `../Output/tables/03_adf_results_diff.csv`
+
+| Variable | ADF stat | p-value | lags | nobs |
+|---|---:|---:|---:|---:|
+| D_CFV12Q | -5.643 | 0.0000010 | 0 | 48 |
+| D_DER | -5.785 | 0.0000005 | 2 | 46 |
+| D_lnTA | -7.251 | 0.00000000018 | 0 | 48 |
+| D_CR | -7.459 | 0.000000000054 | 1 | 47 |
+
+Interpretation: Keempat variabel yang non‑stasioner di level menjadi stasioner setelah didifference (p-value < 0.05). Ini memenuhi syarat re‑estimasi OLS dengan versi differenced sesuai instruksi.
+
 ### Residual Autocorrelation (Breusch–Godfrey on Dynamics)
 
 Sources: `../Output/tables/07_breusch_godfrey_roa.csv`, `../Output/tables/07_breusch_godfrey_netincome.csv`, `../Output/tables/07_breusch_godfrey_cfv12q.csv`
@@ -68,6 +83,18 @@ Sources: `../Output/tables/07_breusch_godfrey_roa.csv`, `../Output/tables/07_bre
 Residual ACF/PACF figures: `../Output/figures/07_resid_acf_ROA.svg`, `../Output/figures/07_resid_pacf_ROA.svg`, `../Output/figures/07_resid_acf_NetIncome.svg`, `../Output/figures/07_resid_pacf_NetIncome.svg`, `../Output/figures/07_resid_acf_CFV12Q.svg`, `../Output/figures/07_resid_pacf_CFV12Q.svg`.
 
 Interpretation: Tidak ada autokorelasi residual yang terdeteksi (p-values > 0.40 untuk ROA/NetIncome; ~1.00 untuk CFV12Q) pada hingga 4 lag. Hal ini konsisten dengan DW ~ 1.91–2.02 dan penggunaan lag dependen di model dinamis.
+
+### Heteroskedasticity (Breusch–Pagan on Re-run OLS, Differenced Specs)
+
+Sources: `../Output/tables/04_breusch_pagan_roa_baseline_diff.csv`, `../Output/tables/04_breusch_pagan_netincome_baseline_diff.csv`, `../Output/tables/04_breusch_pagan_cfv_baseline_diff.csv`
+
+| Model (OLS diff) | LM_stat | LM_p-value | F_stat | F_p-value |
+|---|---:|---:|---:|---:|
+| ROA | 19.7002 | 0.00142 | 5.7824 | 0.00036 |
+| NetIncome | 19.0467 | 0.00188 | 5.4685 | 0.00056 |
+| ΔCFV12Q | 5.9489 | 0.31122 | 1.1884 | 0.33078 |
+
+Interpretation: Pada spesifikasi OLS dengan kontrol differenced (dan ΔCFV sebagai dep untuk CFV), BP mengindikasikan heteroskedastisitas untuk ROA dan NetIncome, namun tidak untuk ΔCFV12Q. Standar error HAC/Newey–West telah digunakan dalam estimasi OLS untuk robustifikasi terhadap heteroskedastisitas dan autokorelasi ringan.
 
 ### Robustness: ΔCFV12Q Model (First Difference)
 

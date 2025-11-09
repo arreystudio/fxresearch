@@ -4,6 +4,7 @@ OLS with HAC robust standard errors for three baseline models.
 """
 import pandas as pd
 import statsmodels.api as sm
+from statsmodels.stats.diagnostic import het_breuschpagan
 import importlib.util, os, sys
 _cfg_path = os.path.join(os.path.dirname(__file__), "00_config.py")
 _spec = importlib.util.spec_from_file_location("cfg", _cfg_path)
@@ -26,6 +27,15 @@ def run_model(df, spec_name: str, dep: str, indeps: list):
     params["std_err"] = model.bse
     params["p_value"] = model.pvalues
     params.to_csv(cfg.output_path("tables", f"04_{spec_name}_params.csv"))
+    # Breusch–Pagan test
+    bp = het_breuschpagan(model.resid, model.model.exog)
+    bp_df = pd.DataFrame({
+        "LM_stat": [bp[0]],
+        "LM_pvalue": [bp[1]],
+        "F_stat": [bp[2]],
+        "F_pvalue": [bp[3]],
+    })
+    bp_df.to_csv(cfg.output_path("tables", f"04_breusch_pagan_{spec_name}.csv"), index=False)
 
 
 def main():
@@ -40,8 +50,20 @@ def main():
     for name, dep, indeps in specs:
         run_model(df, name, dep, indeps)
 
+    # Differenced controls and ΔCFV12Q specification
+    df_diff = df.copy()
+    for col in ["DER","lnTA","CR","CFV12Q"]:
+        df_diff[f"D_{col}"] = pd.to_numeric(df_diff[col], errors="coerce").diff()
+    specs_diff = [
+        ("roa_baseline_diff", "ROA", ["ERVol12Q","Hedge","D_DER","D_lnTA","D_CR"]),
+        ("netincome_baseline_diff", "NetIncome", ["ERVol12Q","Hedge","D_DER","D_lnTA","D_CR"]),
+        ("cfv_baseline_diff", "D_CFV12Q", ["ERVol12Q","Hedge","D_DER","D_lnTA","D_CR"]),
+    ]
+    for name, dep, indeps in specs_diff:
+        run_model(df_diff, name, dep, indeps)
+
     with open(cfg.output_path("logs", "04_baseline.txt"), "w") as f:
-        f.write("Baseline regressions completed. HAC robust SEs used.\n")
+        f.write("Baseline regressions (levels + differenced controls/ΔCFV) completed. HAC robust SEs used.\n")
 
 
 if __name__ == "__main__":

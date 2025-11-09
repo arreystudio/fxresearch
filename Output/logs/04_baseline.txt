@@ -1,1 +1,1 @@
-Baseline regressions completed. HAC robust SEs used.
+Baseline regressions (levels + differenced controls/ΔCFV) completed. HAC robust SEs used.
