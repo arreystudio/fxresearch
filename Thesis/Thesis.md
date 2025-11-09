@@ -82,6 +82,8 @@ Sensitivity includes alternative FX volatility windows (3M, 12M), scaling, winso
 - Multicollinearity: Variance Inflation Factors (VIF).
 - Heteroskedasticity: Breusch–Pagan (ROA), HAC SEs.
 - Autocorrelation: ACF/PACF; dynamic terms where relevant.
+  
+Results summary: See `./Tables/Diagnostics.md` for consolidated outputs and interpretations. Briefly, VIF values are all < 3 (low multicollinearity), Breusch–Pagan for ROA shows no evidence of heteroskedasticity (p ≈ 0.67), and ACF/PACF plus dynamic models indicate lag structures are appropriately handled with significant lag-1 terms and HAC-robust SEs.
 
 ### Ethical Considerations
 Use of public data, proper citation, and transparent, reproducible analysis.
